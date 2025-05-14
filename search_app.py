@@ -42,4 +42,11 @@ if name:
     # その他検索サイト（固定）
     search_urls.update({
         "J-GLOBAL（Google経由）": f"https://www.google.com/search?q=site:jglobal.jst.go.jp+{urllib.parse.quote(quoted)}",
-        "Facebook": f"https://www
+        "Facebook": f"https://www.facebook.com/search/people/?q={urllib.parse.quote(quoted)}",
+        "Eight名刺（Google経由）": f"https://www.google.com/search?q=site:8card.net+{urllib.parse.quote(quoted)}"
+    })
+
+    # 検索リンク表示
+    st.markdown("## 🔗 検索リンク（クリックで開く）")
+    for label, url in search_urls.items():
+        st.markdown(f'<a href="{url}" target="_blank">{label}</a>', unsafe_allow_html=True)
